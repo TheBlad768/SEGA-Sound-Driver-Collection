@@ -1,0 +1,222 @@
+ SECTION HEADER
+ dc.b 5
+ dc.t channel_0
+ dc.t channel_1
+ dc.t channel_2
+ dc.t channel_3
+ dc.t channel_4
+
+ SECTION CODE
+channel_0:
+ loop $7F
+ delay 0
+ nop
+ delay 6
+ tempo 69
+ delay 0
+ patch patch_7F
+ duration 8
+ delay 12
+ note sample_01
+ note sample_01
+ note sample_01
+ note sample_01
+ delay 3
+ note sample_01
+ delay 9
+ note sample_01
+ delay 3
+ note sample_01
+ delay 9
+ note sample_01
+ delay 3
+ note sample_01
+ delay 9
+ note sample_01
+ delay 3
+ note sample_01
+ note sample_01
+ delay 48
+ note sample_01
+ duration 9
+ note sample_12
+ delay 0
+ loopend
+ eos
+channel_1:
+ loop $7F
+ delay 0
+ nop
+ patch patch_3F
+ volume 6
+ duration 3
+ delay 12
+ note $24
+ note $24
+ note $24
+ note $24
+ delay 3
+ note $24
+ delay 9
+ note $24
+ delay 3
+ note $24
+ delay 9
+ note $24
+ delay 3
+ note $24
+ delay 9
+ note $24
+ delay 3
+ note $24
+ delay 105
+ note $24
+ delay 0
+ loopend
+ eos
+channel_2:
+ loop $7F
+ delay 0
+ nop
+ patch patch_42
+ volume 12
+ duration 5
+ delay 6
+ note $16
+ duration 6
+ note $19
+ note $1B
+ note $1C
+ duration 5
+ note $1B
+ duration 6
+ note $19
+ note $16
+ note $14
+ duration 5
+ note $16
+ duration 7
+ note $19
+ duration 6
+ note $1B
+ duration 7
+ note $1C
+ duration 5
+ note $1B
+ duration 6
+ note $19
+ note $16
+ note $14
+ duration 56
+ delay 96
+ note $16
+ delay 0
+ loopend
+ eos
+channel_3:
+ loop $7F
+ delay 0
+ nop
+ patch patch_4D
+ volume 34
+ duration 6
+ delay 6
+ note $22
+ note $25
+ note $27
+ note $28
+ note $27
+ note $25
+ note $22
+ note $20
+ note $22
+ note $25
+ note $27
+ note $28
+ note $27
+ note $25
+ note $22
+ note $20
+ duration 65
+ delay 24
+ note $22
+ delay 1
+ pitch $FF9C
+ delay 0
+ pitch $FE94
+ delay 1
+ pitch $FDAC
+ delay 0
+ pitch $FD28
+ pitch $FCE6
+ delay 1
+ pitch $FD08
+ delay 0
+ pitch $FD6A
+ delay 1
+ pitch $FE10
+ delay 0
+ pitch $FED6
+ pitch $FF9C
+ delay 1
+ pitch $FFFE
+ delay 5
+ pitch $0000
+ delay 1
+ pitch $FF9C
+ delay 0
+ pitch $FED6
+ delay 1
+ pitch $FE10
+ delay 0
+ pitch $FDAC
+ pitch $FD8C
+ delay 1
+ pitch $FDAC
+ delay 0
+ pitch $FDEE
+ delay 1
+ pitch $FE72
+ delay 0
+ pitch $FF18
+ pitch $FF9C
+ delay 1
+ pitch $FFFE
+ delay 4
+ pitch $0000
+ delay 1
+ pitch $FFFE
+ delay 0
+ pitch $FF5A
+ delay 1
+ pitch $FED6
+ delay 0
+ pitch $FE72
+ delay 1
+ pitch $FE52
+ delay 0
+ pitch $FE72
+ pitch $FED6
+ delay 1
+ pitch $FF5A
+ delay 0
+ pitch $FFDE
+ delay 49
+ pitch $0000
+ delay 0
+ loopend
+ eos
+channel_4:
+ loop $7F
+ delay 96
+ nop
+ delay 0
+ patch patch_7C
+ volume 23
+ duration 70
+ note $16
+ delay 96
+ note $22
+ delay 0
+ loopend
+ eos

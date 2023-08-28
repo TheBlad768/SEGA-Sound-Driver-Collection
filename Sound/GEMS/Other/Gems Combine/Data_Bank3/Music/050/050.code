@@ -1,0 +1,147 @@
+ SECTION HEADER
+ dc.b 5
+ dc.t channel_0
+ dc.t channel_1
+ dc.t channel_2
+ dc.t channel_3
+ dc.t channel_4
+
+ SECTION CODE
+channel_0:
+ delay 0
+ tempo 92
+ patch patch_50
+ duration 95
+ delay 96
+ note $10
+ duration 47
+ delay 48
+ note $13
+ duration 46
+ note $12
+ duration 95
+ delay 96
+ note $10
+ duration 47
+ delay 48
+ note $13
+ duration 45
+ note $16
+ duration 15
+ delay 16
+ note $17
+ duration 3
+ delay 4
+ note $3B
+ note $40
+ duration 15
+ delay 15
+ note $47
+ eos
+channel_1:
+ delay 48
+ nop
+ delay 0
+ patch patch_71
+ duration 47
+ note $28
+ note $34
+ note $30
+ delay 48
+ note $2D
+ delay 0
+ note $33
+ note $37
+ note $30
+ delay 48
+ note $2B
+ delay 0
+ note $36
+ note $2A
+ note $32
+ delay 96
+ note $2F
+ delay 0
+ note $28
+ note $30
+ note $34
+ delay 48
+ note $2D
+ delay 0
+ note $37
+ note $33
+ note $2B
+ delay 48
+ note $30
+ delay 0
+ note $36
+ note $2E
+ note $33
+ delay 48
+ note $3A
+ duration 31
+ delay 0
+ note $34
+ note $2F
+ note $37
+ delay 31
+ note $3B
+ eos
+channel_2:
+ delay 400
+ nop
+ delay 0
+ patch patch_5F
+ duration 3
+ delay 4
+ note $3B
+ note $40
+ duration 15
+ delay 15
+ note $47
+ eos
+channel_3:
+ delay 0
+ patch patch_72
+ duration 95
+ delay 96
+ note $1C
+ duration 47
+ delay 48
+ note $1F
+ duration 46
+ note $1E
+ duration 95
+ delay 96
+ note $1C
+ duration 47
+ delay 48
+ note $1F
+ duration 45
+ note $22
+ duration 15
+ delay 16
+ note $23
+ duration 3
+ delay 4
+ note $53
+ note $58
+ duration 15
+ delay 15
+ note $5F
+ eos
+channel_4:
+ delay 400
+ nop
+ delay 0
+ patch patch_50
+ duration 3
+ delay 4
+ note $2F
+ note $34
+ duration 15
+ delay 24
+ note $3B
+ delay 0
+ play $50
+ eos

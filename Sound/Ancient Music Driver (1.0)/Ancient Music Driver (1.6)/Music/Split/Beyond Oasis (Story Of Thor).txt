@@ -1,0 +1,36 @@
+/* Music */
+#split	0x00063CD4,0x0006450E,Beyond Oasis (Story Of Thor)/Music/0.bin
+#split	0x0006450E,0x0006479C,Beyond Oasis (Story Of Thor)/Music/1.bin
+#split	0x0006479C,0x00064BDC,Beyond Oasis (Story Of Thor)/Music/2.bin
+#split	0x00064BDC,0x00064DC8,Beyond Oasis (Story Of Thor)/Music/3.bin
+#split	0x00064DC8,0x00066385,Beyond Oasis (Story Of Thor)/Music/4.bin
+#split	0x00066385,0x0006672F,Beyond Oasis (Story Of Thor)/Music/5.bin
+#split	0x0006672F,0x00066F09,Beyond Oasis (Story Of Thor)/Music/6.bin
+#split	0x00066F09,0x000683F7,Beyond Oasis (Story Of Thor)/Music/7.bin
+#split	0x000683F7,0x00068499,Beyond Oasis (Story Of Thor)/Music/8.bin
+#split	0x00068499,0x00068B0A,Beyond Oasis (Story Of Thor)/Music/9.bin
+#split	0x00068B0A,0x000692D1,Beyond Oasis (Story Of Thor)/Music/A.bin
+#split	0x000692D1,0x00069CE5,Beyond Oasis (Story Of Thor)/Music/B.bin
+#split	0x00069CE5,0x0006B2E5,Beyond Oasis (Story Of Thor)/Music/C.bin
+#split	0x0006B2E5,0x0006B364,Beyond Oasis (Story Of Thor)/Music/D.bin
+#split	0x0006B364,0x0006BD18,Beyond Oasis (Story Of Thor)/Music/E.bin
+#split	0x0006BD18,0x0006C85F,Beyond Oasis (Story Of Thor)/Music/F.bin
+#split	0x0006C85F,0x0006D180,Beyond Oasis (Story Of Thor)/Music/10.bin
+#split	0x0006D180,0x0006E48A,Beyond Oasis (Story Of Thor)/Music/11.bin
+#split	0x0006E48A,0x0006F561,Beyond Oasis (Story Of Thor)/Music/12.bin
+#split	0x0006F561,0x0006F72F,Beyond Oasis (Story Of Thor)/Music/13.bin
+#split	0x0006F72F,0x0006F8AE,Beyond Oasis (Story Of Thor)/Music/14.bin
+#split	0x0006F8AE,0x00070C63,Beyond Oasis (Story Of Thor)/Music/15.bin
+#split	0x00070C63,0x000715DE,Beyond Oasis (Story Of Thor)/Music/16.bin
+#split	0x000715DE,0x00071B86,Beyond Oasis (Story Of Thor)/Music/17.bin
+#split	0x00071B86,0x0007200E,Beyond Oasis (Story Of Thor)/Music/18.bin
+#split	0x0007200E,0x0007226F,Beyond Oasis (Story Of Thor)/Music/19.bin
+#split	0x0007226F,0x00072D22,Beyond Oasis (Story Of Thor)/Music/1A.bin
+#split	0x00072D22,0x0007693B,Beyond Oasis (Story Of Thor)/Music/1B.bin
+#split	0x0007693B,0x000778F2,Beyond Oasis (Story Of Thor)/Music/1C.bin
+#split	0x000778F2,0x000784EC,Beyond Oasis (Story Of Thor)/Music/1D.bin
+#split	0x000784EC,0x00078A5D,Beyond Oasis (Story Of Thor)/Music/1E.bin
+#split	0x00078A5D,0x00079D35,Beyond Oasis (Story Of Thor)/Music/1F.bin
+#split	0x00079D35,0x0007AEE0,Beyond Oasis (Story Of Thor)/Music/20.bin
+#split	0x0007AEE0,0x0007B0BD,Beyond Oasis (Story Of Thor)/Music/21.bin
+/* SFX */

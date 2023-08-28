@@ -1,0 +1,81 @@
+ SECTION HEADER
+ dc.b 4
+ dc.t channel_0
+ dc.t channel_1
+ dc.t channel_2
+ dc.t channel_3
+
+ SECTION CODE
+channel_0:
+ delay 0
+ tempo 132
+ priority 22
+ volume 7
+ delay 15
+ patch patch_00
+ duration 18
+ delay 18
+ note $28
+ duration 6
+ delay 6
+ note $28
+ delay 12
+ note $28
+ duration 60
+ delay 60
+ note $2D
+ eos
+channel_1:
+ delay 0
+ priority 22
+ volume 7
+ delay 15
+ patch patch_10
+ duration 18
+ delay 18
+ note $21
+ duration 6
+ delay 6
+ note $21
+ delay 12
+ note $21
+ duration 60
+ delay 60
+ note $26
+ eos
+channel_2:
+ delay 0
+ priority 22
+ volume 7
+ delay 15
+ patch patch_02
+ duration 18
+ delay 18
+ note $1A
+ duration 6
+ delay 6
+ note $1A
+ delay 12
+ note $1A
+ duration 60
+ delay 60
+ note $1F
+ eos
+channel_3:
+ delay 0
+ priority 22
+ volume 7
+ delay 15
+ patch patch_10
+ duration 18
+ delay 18
+ note $28
+ duration 6
+ delay 6
+ note $28
+ delay 12
+ note $28
+ duration 60
+ delay 60
+ note $2D
+ eos

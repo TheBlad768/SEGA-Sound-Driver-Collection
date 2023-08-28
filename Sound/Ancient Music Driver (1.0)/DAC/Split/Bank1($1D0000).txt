@@ -1,0 +1,10 @@
+/* Samples */
+#split	0x00000040,0x00000510,asm2bin/Samples/1(Kick).bin
+#split	0x00000510,0x00000904,asm2bin/Samples/2(Snare).bin
+#split	0x00000904,0x00001771,asm2bin/Samples/3(Voice1).bin
+#split	0x00001771,0x0000266A,asm2bin/Samples/4(Voice2).bin
+#split	0x0000266A,0x0000428B,asm2bin/Samples/5(Voice3).bin
+#split	0x0000428B,0x00004805,asm2bin/Samples/6(Voice4).bin
+#split	0x00004805,0x00005214,asm2bin/Samples/7(Voice5).bin
+#split	0x00005214,0x0000642A,asm2bin/Samples/8(Voice6).bin
+#split	0x0000642A,0x0000743A,asm2bin/Samples/9(Voice7).bin

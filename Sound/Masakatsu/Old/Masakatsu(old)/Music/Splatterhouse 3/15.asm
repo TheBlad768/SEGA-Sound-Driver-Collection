@@ -1,0 +1,360 @@
+; Start
+		dc.b 1
+		dc.b $FF
+		offsetEntry.w Channel_6BA80	; 0
+		offsetEntry.w Channel_6BACA	; 1
+		offsetEntry.w Channel_6BB02	; 2
+		offsetEntry.w Channel_6BB38	; 3
+		offsetEntry.w Channel_6BB72	; 4
+		offsetEntry.w Channel_6BB8C	; 5
+		offsetEntry.w Channel_6BB9E	; 6
+		offsetEntry.w Channel_6BBB0	; 7
+		offsetEntry.w Channel_6BBC4	; 8
+; ---------------------------------------------------------------------------
+
+Channel_6BA80:
+		dc.b $DD
+		dc.b  $A
+		dc.b $E3
+		dc.b  $E
+		dc.b $D5
+		dc.b   0
+		MasakatsuCallChannel2 byte_6BA94
+		MasakatsuCallChannel2 byte_6BAB2
+		dc.b $F0
+		dc.b   0
+
+byte_6BA94:
+		dc.b $DF
+		dc.b $C0
+		dc.b $F4
+		dc.b   6
+		dc.b $F3
+		dc.b   1
+		dc.b $DE
+		dc.b $28
+		dc.b $E1
+		dc.b   0
+		dc.b $E0
+		dc.b  $B
+		dc.b $DB
+		dc.b   1
+		dc.b $C3
+		dc.b   0
+		dc.b $B3
+		dc.b   0
+		dc.b $93
+		dc.b   0
+		dc.b $DB
+		dc.b   8
+		dc.b $8F
+		dc.b   0
+		dc.b $D9
+		dc.b   0
+		dc.b $D9
+		dc.b   0
+		dc.b $E9
+		dc.b   0
+
+byte_6BAB2:
+		dc.b $DB
+		dc.b   1
+		dc.b $83
+		dc.b   0
+		dc.b $73
+		dc.b   0
+		dc.b $43
+		dc.b   0
+		dc.b $33
+		dc.b   0
+		dc.b $13
+		dc.b   0
+		dc.b $D9
+		dc.b   0
+		dc.b $B3
+		dc.b   0
+		dc.b $A3
+		dc.b   0
+		dc.b $DB
+		dc.b   8
+		dc.b $7F
+		dc.b   0
+		dc.b $E9
+		dc.b   0
+
+Channel_6BACA:
+		dc.b $E3
+		dc.b $11
+		dc.b $DF
+		dc.b $C0
+		dc.b $F4
+		dc.b   6
+		dc.b $F3
+		dc.b   1
+		dc.b $DE
+		dc.b $28
+		dc.b $E1
+		dc.b   0
+		dc.b $E0
+		dc.b  $B
+		dc.b $D5
+		dc.b   0
+		dc.b $DB
+		dc.b   1
+		dc.b $73
+		dc.b   0
+		dc.b $63
+		dc.b   0
+		dc.b $43
+		dc.b   0
+		dc.b $DB
+		dc.b   8
+		dc.b $3F
+		dc.b   0
+		dc.b $D9
+		dc.b   0
+		dc.b $D9
+		dc.b   0
+		dc.b $DB
+		dc.b   1
+		dc.b $53
+		dc.b   0
+		dc.b $23
+		dc.b   0
+		dc.b $D9
+		dc.b   0
+		dc.b $B3
+		dc.b   0
+		dc.b $A3
+		dc.b   0
+		dc.b $83
+		dc.b   0
+		dc.b $63
+		dc.b   0
+		dc.b $43
+		dc.b   0
+		dc.b $DB
+		dc.b   8
+		dc.b $1F
+		dc.b   0
+		dc.b $F0
+		dc.b   0
+
+Channel_6BB02:
+		dc.b $DB
+		dc.b   8
+		dc.b $E3
+		dc.b  $F
+		dc.b $F4
+		dc.b   6
+		dc.b $F3
+		dc.b   1
+		dc.b $DE
+		dc.b $28
+		dc.b $E1
+		dc.b   0
+		dc.b $E0
+		dc.b  $C
+		dc.b $D4
+		dc.b   0
+
+byte_6BB12:
+		dc.b $B
+		dc.b   0
+		dc.b $DB
+		dc.b   1
+		dc.b $DF
+		dc.b $80
+		dc.b $73
+		dc.b   0
+		dc.b $83
+		dc.b   0
+		dc.b $93
+		dc.b   0
+		dc.b $DF
+		dc.b $C0
+		dc.b $A3
+		dc.b   0
+		dc.b $B3
+		dc.b   0
+		dc.b $C3
+		dc.b   0
+		dc.b $D8
+		dc.b   0
+		dc.b $13
+		dc.b   0
+		dc.b $DF
+		dc.b $40
+		dc.b $23
+		dc.b   0
+		dc.b $33
+		dc.b   0
+		dc.b $43
+		dc.b   0
+		dc.b $53
+		dc.b   0
+		dc.b $DB
+		dc.b   8
+		dc.b $F0
+		dc.b   0
+
+Channel_6BB38:
+		dc.b $E3
+		dc.b $11
+		dc.b $D5
+		dc.b   0
+
+byte_6BB3C:
+		dc.b $DF
+		dc.b $C0
+		dc.b $F4
+		dc.b   6
+		dc.b $F3
+		dc.b   1
+		dc.b $DE
+		dc.b $28
+		dc.b $E1
+		dc.b   0
+		dc.b $E0
+		dc.b $12
+		dc.b $DB
+		dc.b   1
+		dc.b $EB
+		dc.b  $C
+		dc.b $63
+		dc.b   0
+		dc.b $73
+		dc.b   0
+		dc.b $EC
+		dc.b   0
+		dc.b $73
+		dc.b   0
+		dc.b $33
+		dc.b   0
+		dc.b $D9
+		dc.b   0
+		dc.b $C3
+		dc.b   0
+		dc.b $B3
+		dc.b   0
+		dc.b $73
+		dc.b   0
+		dc.b $33
+		dc.b   0
+		dc.b $D9
+		dc.b   0
+		dc.b $C3
+		dc.b   0
+		dc.b $B3
+		dc.b   0
+		dc.b $DB
+		dc.b   8
+		dc.b $F4
+		dc.b   7
+		dc.b $F3
+		dc.b   2
+		dc.b $DE
+		dc.b $50
+		dc.b $7F
+		dc.b   0
+		dc.b $F0
+		dc.b   0
+
+Channel_6BB72:
+		dc.b $E3
+		dc.b $17
+		dc.b $DB
+		dc.b   8
+		dc.b $E5
+		dc.b $FE
+		dc.b $D4
+		dc.b   0
+		MasakatsuCallChannel2 byte_6BA94
+		dc.b   1
+		dc.b   0
+		dc.b $D8
+		dc.b   0
+		MasakatsuCallChannel2 byte_6BAB2
+		dc.b $F0
+		dc.b   0
+
+Channel_6BB8C:
+		dc.b $E3
+		dc.b  $F
+		dc.b $DB
+		dc.b   8
+		dc.b $E5
+		dc.b $FE
+		dc.b $D4
+		dc.b   0
+		dc.b   0
+		dc.b   0
+		MasakatsuJumpChannel2 byte_6BB3C
+		dc.b $F0
+		dc.b   0
+
+Channel_6BB9E:
+		dc.b $DB
+		dc.b   8
+		dc.b $E1
+		dc.b   0
+		dc.b $F1
+		dc.b   2
+		dc.b $E3
+		dc.b   7
+		dc.b $D5
+		dc.b   0
+		MasakatsuJumpChannel2 byte_6BB12
+		dc.b $F0
+		dc.b   0
+
+Channel_6BBB0:
+		dc.b $DB
+		dc.b   8
+		dc.b $E1
+		dc.b   0
+		dc.b $F1
+		dc.b   2
+		dc.b $E3
+		dc.b   8
+		dc.b $D5
+		dc.b   0
+		dc.b   0
+		dc.b   0
+		MasakatsuJumpChannel2 byte_6BB12
+		dc.b $F0
+		dc.b   0
+
+Channel_6BBC4:
+		dc.b $F2
+		dc.b   2
+		dc.b $DB
+		dc.b   8
+		dc.b   3
+		dc.b   0
+		dc.b $DB
+		dc.b   1
+		dc.b $E1
+		dc.b $1E
+		dc.b $D7
+		dc.b   0
+		dc.b $E3
+		dc.b   7
+		dc.b $F1
+		dc.b   1
+		dc.b $EB
+		dc.b  $A
+		dc.b $C3
+		dc.b   0
+		dc.b $EC
+		dc.b   0
+		dc.b $E4
+		dc.b $FF
+		dc.b $EB
+		dc.b  $C
+		dc.b $C3
+		dc.b   0
+		dc.b $EC
+		dc.b   0
+		dc.b $F0
+		dc.b   0

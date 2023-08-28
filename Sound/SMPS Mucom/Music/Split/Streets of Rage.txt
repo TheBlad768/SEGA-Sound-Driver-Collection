@@ -1,0 +1,18 @@
+/* Music */
+#split	0x00074876,0x00074C6E,Streets of Rage/Music/0.bin
+#split	0x00074C6E,0x00075B3A,Streets of Rage/Music/1.bin
+#split	0x00075B3A,0x0007685A,Streets of Rage/Music/2.bin
+#split	0x0007685A,0x000774BE,Streets of Rage/Music/3.bin
+#split	0x000774BE,0x00077FD4,Streets of Rage/Music/4.bin
+#split	0x0007B342,0x0007B508,Streets of Rage/Music/5.bin
+#split	0x0007B508,0x0007BC22,Streets of Rage/Music/6.bin
+#split	0x0007BC22,0x0007C7F6,Streets of Rage/Music/7.bin
+#split	0x0007C7F6,0x0007D2DE,Streets of Rage/Music/8.bin
+#split	0x0007D2DE,0x0007D91C,Streets of Rage/Music/9.bin
+#split	0x0007D91C,0x0007DC20,Streets of Rage/Music/A.bin
+#split	0x0007DC20,0x0007DF5C,Streets of Rage/Music/B.bin
+#split	0x0007DF5C,0x0007E66E,Streets of Rage/Music/C.bin
+#split	0x0007E66E,0x0007EEC0,Streets of Rage/Music/D.bin
+#split	0x0007EEC0,0x0007F79C,Streets of Rage/Music/E.bin
+#split	0x0007F79C,0x0007FF0E,Streets of Rage/Music/F.bin
+/* SFX */

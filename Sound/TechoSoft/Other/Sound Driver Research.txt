@@ -1,0 +1,275 @@
+
+Memory map
+
+	0000h	b	(?) Unknown, always 0FFh, init flag?
+	0001h	b	(Unused)
+	0002h	b	DAC playing flag (00h - not playing, 80h - playing)
+	0003h	b	68k Input: Command
+	0004h	b	68k Input: Arguments (1 to 4 bytes)
+	0005h	b	''
+	0006h	b	''
+	0007h	b	''
+	0008h	b	Currently playing DAC voice
+	0009h	b	(Unused)
+	000Ah	b	(?) Unknown, BGM-programmed variable?
+	000Bh	b	Busy flag, set when writting to YM (00h - no access, 0FFh - write in process)
+	000Ch	b	(?) Unknown, pan/AMS/FMS subroutine variable?
+	000Dh	b	(Unused)
+	000Eh	b	(?) Unknown flag, something to do with track/pattern offset reloading
+	000Fh	b	Current channel number (0..5 are FMs, 6..8 are PSGs)
+	0010h	w	(?) Unknown
+	0012h	b	BGM fade out speed
+	0013h	b	BGM fade out counter
+	0014h	b	BGM fade out volume (affects all the channels, when reaches 07Fh, everything gets muted, tracks stop)
+	0015h	b	(?) Unknown
+	0016h	b	(?) Unknown
+	0017h	b	BGM global volume
+	0018h	b	BGM tempo modifier
+	0019h	b	BGM pitch modifier
+	001Ah	b	(?) Current LFO setting
+	001Bh	b	(Unused)
+	001Ch	b	(?) Unknown
+	001Dh	b	(?) Unknown
+	001Eh	b	(Unused)
+	001Fh	b	(Unused)
+	0020h	w	9-bit field indicating which BMG channels are playing
+	0022h	w	9-bit field indicating which SFX channels are playing
+	0024h	b	(Unused)
+	0025h	b	(Unused)
+	0026h	b	(Unused)
+	0027h	b	(Unused)
+	0028h	b	(Unused)
+	0029h	w	(?) Unknown
+	002Bh	w	(?) Unknown
+	002Dh	b	(?) Unknown
+	002Eh	w	(?) Unknown
+	0030h	b	(Unused)
+	0031h	b	(Unused)
+	0032h	b	(?) Unknown
+	0033h	b	(Unused)
+	0034h	b	(Unused)
+	0035h	b	(Unused)
+	0036h	w	(?) PCM Data copy
+	----------------------------------------------------------------------------------------
+	1980h	w	PCM length
+	1982h	b	PCM unknown/unused parameter
+	1983h	b	PCM pitch
+	1984h	w	PCM offset
+	1986h	b	(Unused)
+	1987h	b	(Unused)
+	1988h	b	(Unused)
+	1989h	b	(Unused)
+	198Ah	w	(?) Unknown
+	198Ch	b	SFX processing flag (00h - BGM is processed, >00h - SFX is processed)
+	198Dh	b	(?) Unknown
+	198Eh	w	BGM offset
+	1990h	w	(?) Unknown/unused offset (SFX?)
+	1992h		FM 1 BGM Struct
+	19E6h		FM 2 BGM Struct
+	1A3Ah		FM 3 BGM Struct
+	1A8Eh		FM 4 BGM Struct
+	1AE2h		FM 5 BGM Struct
+	1B36h		FM 6 BGM Struct
+	1B8Ah		PSG 1 BGM Struct
+	1BDEh		PSG 2 BGM Struct
+	1C32h		PSG 3 BGM Struct
+	1C86h		FM 1 SFX Struct
+	1CDAh		FM 2 SFX Struct
+	1D2Eh		FM 3 SFX Struct
+	1D82h		FM 4 SFX Struct
+	1DD6h		FM 5 SFX Struct
+	1E2Ah		FM 6 SFX Struct
+	1E7Eh		PSG 1 SFX Struct
+	1ED2h		PSG 2 SFX Struct
+	1F26h		PSG 3 SFX Struct
+
+
+68k Samples table entry
+
+	00h	w	Sample table-relative offset
+	02h	w	Sample length
+	04h	b	(?) Unknown, probably unused
+	05b	b	Pitch byte
+
+Channel struct (54h bytes)
+
+	00h	b	Channel state (0FFh - channel disabled)
+	01h	w	Current position in track
+	03h	w	Start position in track (for restart/loops)
+	05h	w	Current position in pattern
+	07h	w	Channel stack (starts from byte 10h)
+	09h	b	Portamento counter (0-1Fh)
+	0Ah	b	(?) Current note
+	0Bh	b	Portamento counter (copy)
+	0Ch	b	(?) Current note (copy)
+	0Dh	b	??? Connected with subtraction word 09h from 0Bh (see loc_92D)
+	0Eh	b	''
+	0Fh	b	Current stack level (up to 3 levels are possible)
+	10h	b	Channel stack level 1 repeat count
+	11h	w	Channel stack level 1 repeat offset
+	13h	b	Channel stack level 2 repeat count
+	14h	w	Channel stack level 2 repeat offset
+	16h	b	Channel stack level 3 repeat count
+	17h	w	Channel stack level 3 repeat offset
+
+	1Eh	b	4-bit bitfield, sets whether or not apply dyn volume for each TL operator
+			Selected based on algorithm setting (see byte 21h)
+			If bit 7 is set, volume isn't set or restored at some point
+	1Dh	b	(?) Current instrument
+
+	1Fh	b	Counter, counts until next note (set by flag 0E5h)
+	20h	b	(?) Unknown counter, causes track stop under certain conditions
+
+	20h	b	(?) Unknown counter, decreases to zero
+	21h	b	Feedback/alogrithm
+			This, masked by 7, points to some data array entry (byte_7A5), which is later loaded into 1Eh
+			
+	22h	b	(?) Note displacement
+
+	23h	b	(?) Something to do with portamento or vibrato (0-7Fh)
+
+	25h	b	(?) FM pitch
+
+	27h	b	(?) Volume effect counter reload volume
+	28h	b	(?) Volume effect counter
+	29h	b	(?) Volume modifier (if not zero, volume effect routine works?)
+	2Ah	b	FM Volume level (0 = Min)
+	2Bh	b	AMS/FMS enable flag
+	2Ch	b	Panning, AMS/FMS
+	2Dh	b	(?) Something to do with LFO
+	2Eh	b	??? Copied to word_2B
+	2Fh	b	??? Copied to word_2B+1
+
+	32h	b	(?) Note duration / Goes to 1Fh (can be loaded from pattern, first byte after note)
+	33h	b	(?) Goes to 20h (can be loaded from pattern, second byte after note)
+	34h	b	(?) (can be loaded from pattern, third byte after note)
+
+	3Ch	b	(?) PSG command buffer
+
+	41h	b	(?) PSG volume
+
+	47h	b	??? Copy of 09h
+	48h	b	??? Copy of 0Ah
+
+	4Ah	b	(?) Channel volume
+
+BGM Header format:
+
+	00h	b	(?) Unknown indicator. Number of channels? (09h affects how BGM is loaded)
+	01h	b	Volume
+	02h	b	Tempo modifier (01h - Slowest, 0FFh - Fastest)
+	03h	b	Pitch modifier
+	04h	w	(?) Unknown pointer (usually 10h, affects modulation)
+	06h	w	Channel tracks table pointer
+	08h	w	Patterns table pointer
+	0Ah	w	FM Instruments pointer
+	0Ch	w	PSG Instruments pointer
+	0Eh	w	(?) Unknown pointer
+
+	Channel tracks table stores offset for all 9 sound channels used by driver in the following order:
+		FM1, FM2, FM3, FM4, FM5, FM6, PSG1, PSG2, PSG3
+	Channel tracks cannot be skipped -- if the channel is unused, corresponding track should start with byte 0FFh (end of track marker).
+
+	Each FM/PSG track refers to patterns from patterns table by table entry number. Both tracks and patterns can execute coordinate flags.
+
+Coordinate flags:
+
+	0E0h..0EDh	Coordinate flag type 1 (uses 1-byte argument)
+		0E0h		Load instrument
+		0E1h		Set pan
+
+		0E4h		
+		0E5h		(?) Synchronization flag?
+				If arg is zero, driver seeks end flags for currently playing patterns in channels
+				Something to do with byte 24h
+		0ECh		Set repeat count at this position
+
+	0EEh..0EFh	(?) Unknown, pretend to use 1-byte argument, probably invalid for tracks (but valid for patterns?)
+
+	0F0h..0F7h	Coordinate flag type 2 (no arguments)
+		F0h		(?) Sets/update FM pan/AMS/FMS under certain circumstantes // BGM only
+		F1h		(?) Enables (or disables?) LFO // BGM only
+		F2h		(?) Resets byte 1Ch
+		F3h		(?) Sets byte 1Ch to FFh
+		F4h		(?) Clears bits 7 of bytes 23h and 2Bh
+		F5h		(?) Sets bit 7 of 23h and resets bit 7 of 2Bh
+		F6h		(?) Sets bit 7 of 2Bh and resets bit 6 of 2Bh
+		F7h		(?) Sets bits 7 and 6 of 2Bh
+
+	0FBh..0FFh	Track control flags
+		0FBh		Ignored/No effect
+		0FCh		Ignored/No effect
+        	0FDh		For patterns, repeats pattern (repeat is stored by 0ECh command). For tracks, sets restart pos?
+        	0FFh		Stops track
+
+FM Instrument format (24h bytes):
+
+	00h	b	Feedback/Algorithm
+	01h	b	(?) 0aaa00bb --> 0aaa goes to 2Eh, 00bb goes to 2Fh
+	02h	b	Operator 1 Detune/Mult
+	03h	b	Operator 3 Detune/Mult
+	04h	b	Operator 2 Detune/Mult
+	05h	b	Operator 4 Detune/Mult
+	06h	b	Operator 1 TL
+	07h	b	Operator 3 TL
+	08h	b	Operator 2 TL
+	09h	b	Operator 4 TL
+	0Ah	b	Operator 1 Decay rate/AM
+	0Bh	b	Operator 3 Decay rate/AM
+	0Ch	b	Operator 2 Decay rate/AM
+	0Dh	b	Operator 4 Decay rate/AM
+	0Eh	b	Operator 1 Secondary decay rate
+	0Fh	b	Operator 3 Secondary decay rate
+	10h	b	Operator 2 Secondary decay rate
+	11h	b	Operator 4 Secondary decay rate
+	12h	b	Operator 1 Secondary amplitude/Release rate
+	13h	b	Operator 3 Secondary amplitude/Release rate
+	14h	b	Operator 2 Secondary amplitude/Release rate
+	15h	b	Operator 4 Secondary amplitude/Release rate
+	16h	b
+	17h	b
+	18h	b
+	19h	b
+	1Ah	b
+	1Bh	b
+	1Ch	b
+	1Dh	b
+	1Eh	b
+	1Fh	b
+	20h	b	(?) LFO setting
+	21h	b
+	22h	b
+	23h	b
+	...
+
+PSG Instrument format (10h bytes):
+
+	00h	b	(?) First 7 bytes are copied into channel struct from offset 35h
+	01h	b
+	02h	b
+	03h	b
+	04h	b
+	05h	b
+	06h	b
+	07h	b
+	08h	b	(?) 0aaa00bb --> 0aaa goes to 2Eh, 00bb goes to 2Fh
+	09h	b	(?) LFO/Modulation setting, goes to 2Dh
+	0Ah	b	(?) Unknown, goes to 30h
+
+
+Notes:
+
+	1) Timers A and B used to update FM and PSG channels during the main loop. LFO data is also updated within PSG update routine.
+
+	2) How requested BMG in Sound test loads:
+		* Send command 0Ah with 4-byte offset (@ $12CEE) -- loads music bank
+		* Send command 09h with 2-byte offset (@ $12DCA) -- loads BGM
+		* Send command 01h with byte (@ $12D68) -- set looping?
+
+	How requested SFX in Sound test plays:
+		* Send command 04h (@ $12EAA) -- stops previously playing SFX
+		* Send command 02h (@ $12E6A) with 2-bytes copied from RAM
+
+
+	3) TechoSoft driver is quite awesome to use full 24-bit (3 byte) ROM offsets in its bank system.
+	Byte 1 and bit 7 of byte 2 are used to set 68k bank, while the rest bits (6-0 of byte 2 and byte 3) form proper bank offset.

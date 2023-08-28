@@ -1,0 +1,343 @@
+ SECTION HEADER
+ dc.b 13
+ dc.t channel_0
+ dc.t channel_1
+ dc.t channel_2
+ dc.t channel_3
+ dc.t channel_4
+ dc.t channel_5
+ dc.t channel_6
+ dc.t channel_7
+ dc.t channel_8
+ dc.t channel_9
+ dc.t channel_10
+ dc.t channel_11
+ dc.t channel_12
+
+ SECTION CODE
+channel_0:
+ delay 0
+ mastervolume 7
+ if 0!=0,label_13
+ delay 0
+ tempo 126
+label_13:
+ delay 0
+ nop
+ if 0!=1,label_14
+ delay 0
+ tempo 152
+label_14:
+ delay 239
+ nop
+ delay 0
+ patch patch_00
+ eos
+channel_1:
+ delay 0
+ patch patch_05
+ volume 0
+ duration 18
+ delay 6
+ note $15
+ delay 12
+ pitch $0000
+ duration 12
+ note $21
+ duration 6
+ delay 6
+ note $1C
+ duration 12
+ delay 12
+ note $1F
+ duration 18
+ delay 18
+ note $15
+ duration 6
+ delay 6
+ note $1C
+ note $1F
+ duration 20
+ delay 20
+ note $21
+ duration 15
+ delay 15
+ note $1B
+ duration 8
+ delay 8
+ note $15
+ duration 28
+ delay 18
+ note $1C
+ delay 1
+ pitch $FFE0
+ pitch $FFC0
+ pitch $FFA0
+ pitch $FF80
+ pitch $FF60
+ pitch $FF40
+ pitch $FF20
+ pitch $FF00
+ pitch $FEE0
+ pitch $FEC0
+ delay 0
+ pitch $0000
+ duration 30
+ delay 30
+ note $15
+ delay 0
+ volume 15
+ delay 30
+ note $15
+ delay 0
+ volume 63
+ duration 60
+ delay 60
+ note $15
+ eos
+channel_2:
+ delay 0
+ patch patch_1B
+ volume 0
+ pitch $0000
+ duration 36
+ note $45
+ delay 6
+ note $40
+ delay 12
+ pitch $0000
+ delay 1
+ pitch $0007
+ pitch $000E
+ pitch $0015
+ pitch $001C
+ pitch $0023
+ pitch $002A
+ pitch $0023
+ pitch $001C
+ pitch $0015
+ pitch $000E
+ pitch $0007
+ pitch $0000
+ pitch $0007
+ pitch $000E
+ pitch $0015
+ pitch $001C
+ pitch $0023
+ pitch $002A
+ delay 0
+ pitch $0000
+ duration 6
+ note $40
+ delay 12
+ note $3C
+ delay 0
+ note $42
+ delay 6
+ note $3E
+ delay 0
+ note $43
+ delay 12
+ note $40
+ delay 0
+ note $42
+ delay 12
+ note $3E
+ duration 7
+ delay 0
+ note $40
+ delay 7
+ note $39
+ duration 6
+ delay 0
+ note $3E
+ delay 13
+ note $3B
+ duration 15
+ delay 0
+ note $3F
+ delay 23
+ note $43
+ duration 18
+ delay 0
+ note $3E
+ delay 28
+ note $42
+ duration 30
+ delay 0
+ note $3C
+ delay 30
+ note $47
+ delay 0
+ volume 15
+ note $3C
+ delay 30
+ note $47
+ delay 0
+ volume 79
+ note $3C
+ delay 30
+ note $45
+ delay 0
+ volume 95
+ note $3C
+ delay 30
+ note $45
+ eos
+channel_3:
+ delay 239
+ nop
+ delay 0
+ patch patch_00
+ eos
+channel_4:
+ delay 239
+ nop
+ delay 0
+ patch patch_00
+ eos
+channel_5:
+ delay 239
+ nop
+ delay 0
+ patch patch_00
+ eos
+channel_6:
+ delay 6
+ nop
+ delay 0
+ patch patch_4C
+ volume 10
+ duration 6
+ delay 48
+ note $35
+ delay 0
+ volume 0
+ delay 12
+ note $35
+ delay 0
+ volume 10
+ delay 19
+ note $35
+ delay 6
+ note $38
+ eos
+channel_7:
+ delay 18
+ nop
+ delay 0
+ patch patch_60
+ duration 6
+ delay 54
+ note $28
+ delay 41
+ note $28
+ duration 8
+ delay 26
+ note $28
+ duration 10
+ delay 10
+ note $28
+ eos
+channel_8:
+ delay 0
+ patch patch_5C
+ duration 6
+ delay 30
+ note $15
+ delay 18
+ note $15
+ delay 30
+ note $15
+ duration 7
+ delay 20
+ note $15
+ delay 23
+ note $15
+ duration 9
+ delay 28
+ note $15
+ duration 120
+ delay 120
+ note $15
+ eos
+channel_9:
+ delay 12
+ nop
+ delay 0
+ patch patch_65
+ volume 0
+ duration 6
+ delay 12
+ note $38
+ delay 0
+ volume 10
+ delay 12
+ note $38
+ delay 0
+ volume 10
+ delay 6
+ note $38
+ delay 0
+ volume 15
+ delay 18
+ note $38
+ delay 31
+ note $38
+ duration 7
+ delay 14
+ note $38
+ duration 8
+ delay 25
+ note $38
+ duration 9
+ delay 9
+ note $38
+ eos
+channel_10:
+ delay 239
+ nop
+ delay 0
+ patch patch_00
+ eos
+channel_11:
+ delay 239
+ nop
+ delay 0
+ patch patch_00
+ eos
+channel_12:
+ delay 6
+ nop
+ delay 0
+ patch patch_16
+ volume 31
+ duration 36
+ delay 6
+ note $45
+ delay 30
+ pitch $0000
+ duration 6
+ delay 12
+ note $40
+ delay 6
+ note $42
+ delay 12
+ note $43
+ delay 13
+ note $42
+ delay 6
+ note $40
+ duration 7
+ delay 14
+ note $3E
+ duration 16
+ delay 25
+ note $3F
+ duration 19
+ delay 29
+ note $3E
+ duration 80
+ delay 80
+ note $3C
+ eos

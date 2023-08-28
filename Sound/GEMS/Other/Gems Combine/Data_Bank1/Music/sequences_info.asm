@@ -1,0 +1,603 @@
+_sequences_count equ 149
+_samples_count equ 27
+_dac_patch equ 25
+
+; 0
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 1
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 2
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 3
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 4
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 5
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 6
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 7
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 8
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 9
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 10
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 11
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 12
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 13
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 14
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 15
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 16
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 17
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 18
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 19
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 20
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 21
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 22
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 23
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 24
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 25
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 26
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 27
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 28
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 29
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 30
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 31
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 32
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 33
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 34
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 35
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 36
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 37
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 38
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 39
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 40
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 41
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 42
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 43
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 44
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 45
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 46
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 47
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 48
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 49
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 50
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 51
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 52
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 53
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 54
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 55
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 56
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 57
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 58
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 59
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 60
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 61
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 62
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 63
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 64
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 65
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 66
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 67
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 68
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 69
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 70
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 71
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 72
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 73
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 74
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 75
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 76
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 77
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 78
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 79
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 80
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 81
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 82
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 83
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 84
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 85
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 86
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 87
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 88
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 89
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 90
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 91
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 92
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 93
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 94
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 95
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 96
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 97
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 98
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 99
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 100
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 101
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 102
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 103
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 104
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 105
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 106
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 107
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 108
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 109
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 110
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 111
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 112
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 113
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 114
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 115
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 116
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 117
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 118
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 119
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 120
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 121
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 122
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 123
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 124
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 125
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 126
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 127
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 128
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 129
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 130
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 131
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 132
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 133
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 134
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 135
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 136
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 137
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 138
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 139
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 140
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 141
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 142
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 143
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 144
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 145
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 146
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 147
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+; 148
+ dc.l _export_string_0
+ dc.l _export_string_0
+ dc.l _export_string_0
+
+_export_string_0:
+ dc.b 0

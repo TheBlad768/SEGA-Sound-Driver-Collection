@@ -1,0 +1,53 @@
+/* Music S1 */
+#split	0x003AD726,0x003ADF56,S1/Mus81 - GHZ.bin
+#split	0x003ADF56,0x003AE40F,S1/Mus82 - LZ.bin
+#split	0x003AE410,0x003AE8AB,S1/Mus83 - MZ.bin
+#split	0x003AE8AC,0x003AED86,S1/Mus84 - SLZ.bin
+#split	0x003AED86,0x003AF234,S1/Mus85 - SYZ.bin
+#split	0x003AF234,0x003AF844,S1/Mus86 - SBZ.bin
+#split	0x003AF844,0x003AFA46,S1/Mus87 - Invincibility.bin
+#split	0x003AFA46,0x003AFB4B,S1/Mus88 - Extra Life.bin
+#split	0x003AFB4C,0x003AFEAF,S1/Mus89 - Special Stage.bin
+#split	0x003AFEB0,0x003B0079,S1/Mus8A - Title Screen.bin
+#split	0x003B007A,0x003B034C,S1/Mus8B - Ending.bin
+#split	0x003B034C,0x003B058A,S1/Mus8C - Boss.bin
+#split	0x003B058A,0x003B07C3,S1/Mus8D - FZ.bin
+#split	0x003B07C4,0x003B0917,S1/Mus8E - Sonic Got Through.bin
+#split	0x003B0918,0x003B0A77,S1/Mus8F - Game Over.bin
+#split	0x003B0A78,0x003B0BED,S1/Mus90 - Continue Screen.bin
+#split	0x003B0BEE,0x003B2057,S1/Mus91 - Credits.bin
+#split	0x003B2058,0x003B21AC,S1/Mus92 - Drowning.bin
+#split	0x003B21AC,0x003B228D,S1/Mus93 - Get Emerald.bin
+/* Music S2 */
+#split	0x003B228E,0x003B2761,S2/81 - 2 Player Menu.bin
+#split	0x003B2762,0x003B2F74,S2/82 - EHZ.bin
+#split	0x003B2F74,0x003B34B7,S2/83 - MCZ 2P.bin
+#split	0x003B34B8,0x003B39AE,S2/84 - OOZ.bin
+#split	0x003B39AE,0x003B3FBB,S2/85 - MTZ.bin
+#split	0x003B3FBC,0x003B44BC,S2/86 - HTZ.bin
+#split	0x003B44BC,0x003B4CA1,S2/87 - ARZ.bin
+#split	0x003B4CA2,0x003B52B1,S2/88 - CNZ 2P.bin
+#split	0x003B52B2,0x003B5A2C,S2/89 - CNZ.bin
+#split	0x003B5A2C,0x003B5F4C,S2/8A - DEZ.bin
+#split	0x003B5F4C,0x003B6683,S2/8B - MCZ.bin
+#split	0x003B6684,0x003B6C57,S2/8C - EHZ 2P.bin
+#split	0x003B6C58,0x003B70CA,S2/8D - SCZ.bin
+#split	0x003B70CA,0x003B77A1,S2/8E - CPZ.bin
+#split	0x003B77A2,0x003B7C0C,S2/8F - WFZ.bin
+#split	0x003B7C0C,0x003B7E96,S2/90 - HPZ.bin
+#split	0x003B7E96,0x003B8028,S2/91 - Options.bin
+#split	0x003B8028,0x003B86A8,S2/92 - Special Stage.bin
+#split	0x003B86A8,0x003B89BF,S2/93 - Boss.bin
+#split	0x003B89C0,0x003B8C1A,S2/A0 - Boss(Beta).bin
+#split	0x003B8C1A,0x003B8FB8,S2/94 - Final Boss.bin
+#split	0x003B8FB8,0x003B961D,S2/95 - SWEET SWEET SWEET.bin
+#split	0x003B961E,0x003B995A,S2/96 - Super Sonic.bin
+#split	0x003B995A,0x003B9B41,S2/97 - Invincible.bin
+#split	0x003B9B42,0x003B9C47,S2/98 - Extra Life.bin
+#split	0x003B9C48,0x003B9E61,S2/99 - Title Screen.bin
+#split	0x003B9E62,0x003B9FB5,S2/9A - End of Act.bin
+#split	0x003B9FB6,0x003BA115,S2/9B - Game Over.bin
+#split	0x003BA116,0x003BA28B,S2/9C - Continue.bin
+#split	0x003BA28C,0x003BA36D,S2/9D - Got Emerald.bin
+#split	0x003BA36E,0x003BBCB0,S2/9E - Credits.bin
+#split	0x003BBCB0,0x003BBE04,S2/9F - Drowning.bin

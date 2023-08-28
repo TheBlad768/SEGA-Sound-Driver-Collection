@@ -1,0 +1,35 @@
+ SECTION HEADER
+ dc.b 1
+ dc.t channel_0
+
+ SECTION CODE
+channel_0:
+ delay 0
+ mailbox 0,0
+ stop 39
+ tempo 130
+ patch patch_0C
+ duration 24
+ delay 24
+ note sample_00
+ note sample_00
+ note sample_00
+ note sample_00
+ note sample_00
+ note sample_00
+ note sample_00
+ note sample_00
+ delay 0
+ play 39
+ delay 24
+ note sample_00
+ note sample_00
+ note sample_00
+ note sample_00
+ note sample_00
+ note sample_00
+ note sample_00
+ note sample_00
+ delay 0
+ stop 33
+ eos

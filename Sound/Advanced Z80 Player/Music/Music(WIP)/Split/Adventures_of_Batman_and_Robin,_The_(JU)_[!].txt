@@ -1,0 +1,27 @@
+/* MUSIC (Bank 1) */
+#split	0x001E8027,0x001E8423,Music/Adventures of Batman and Robin/Bank 1/Music/1.bin
+#split	0x001E8423,0x001E8587,Music/Adventures of Batman and Robin/Bank 1/Music/2.bin
+#split	0x001E8587,0x001E886F,Music/Adventures of Batman and Robin/Bank 1/Music/3.bin
+#split	0x001E886F,0x001E8A03,Music/Adventures of Batman and Robin/Bank 1/Music/4.bin
+#split	0x001E8A03,0x001E8C77,Music/Adventures of Batman and Robin/Bank 1/Music/5.bin
+#split	0x001E8C77,0x001E8DF3,Music/Adventures of Batman and Robin/Bank 1/Music/6.bin
+#split	0x001E8DF3,0x001E91E3,Music/Adventures of Batman and Robin/Bank 1/Music/7.bin
+/* SEQUENCE (Bank 1) */
+#split	0x001E93B1,0x001E93B7,Music/Adventures of Batman and Robin/Bank 1/Sequences/1.bin
+#split	0x001E93B7,0x001E93BD,Music/Adventures of Batman and Robin/Bank 1/Sequences/2.bin
+#split	0x001E93BD,0x001E9404,Music/Adventures of Batman and Robin/Bank 1/Sequences/3.bin
+#split	0x001E9404,0x001E940A,Music/Adventures of Batman and Robin/Bank 1/Sequences/4.bin
+#split	0x001E940A,0x001E9410,Music/Adventures of Batman and Robin/Bank 1/Sequences/5.bin
+#split	0x001E9410,0x001E941C,Music/Adventures of Batman and Robin/Bank 1/Sequences/6.bin
+#split	0x001E941C,0x001E9428,Music/Adventures of Batman and Robin/Bank 1/Sequences/7.bin
+#split	0x001E9428,0x001E9500,Music/Adventures of Batman and Robin/Bank 1/Sequences/8.bin
+#split	0x001E9500,0x001E9517,Music/Adventures of Batman and Robin/Bank 1/Sequences/9.bin
+#split	0x001E9517,0x001E956E,Music/Adventures of Batman and Robin/Bank 1/Sequences/A.bin
+#split	0x001E956E,0x001E95E2,Music/Adventures of Batman and Robin/Bank 1/Sequences/B.bin
+#split	0x001E95E2,0x001E95FA,Music/Adventures of Batman and Robin/Bank 1/Sequences/C.bin
+#split	0x001E95FA,0x001E9651,Music/Adventures of Batman and Robin/Bank 1/Sequences/D.bin
+#split	0x001E9651,0x001E9717,Music/Adventures of Batman and Robin/Bank 1/Sequences/E.bin
+#split	0x001E9717,0x001E97FD,Music/Adventures of Batman and Robin/Bank 1/Sequences/F.bin
+#split	0x001E97FD,0x001E982A,Music/Adventures of Batman and Robin/Bank 1/Sequences/10.bin
+#split	0x001E982A,0x001E984B,Music/Adventures of Batman and Robin/Bank 1/Sequences/11.bin
+#split	0x001E984B,0x001E9869,Music/Adventures of Batman and Robin/Bank 1/Sequences/12.bin

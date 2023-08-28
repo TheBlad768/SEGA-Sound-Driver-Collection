@@ -1,0 +1,6 @@
+RAW 'sample_53.snd'
+FLAGS =$45
+SKIP  =$0000
+FIRST =$2928
+LOOP  =$0000
+END   =$0000

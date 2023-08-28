@@ -1,0 +1,6 @@
+RAW 'sample_2A.snd'
+FLAGS =$06
+SKIP  =$0000
+FIRST =$0AD2
+LOOP  =$0000
+END   =$0000

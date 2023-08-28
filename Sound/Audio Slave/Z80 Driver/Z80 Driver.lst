@@ -1,0 +1,416 @@
+ AS V1.42 Beta [Bld 111] - source file Z80 Driver.asm - page 1 - 8/17/2019 18:38:56
+
+
+       1/       0 :                     ; ---------------------------------------------------------------------------
+       2/       0 :                     ; Audios Wave Slave MD
+       3/       0 :                     ; Z80 DAC Driver
+       4/       0 :                     ;
+       5/       0 :                     ; Disassembled by Vladikcomper
+       6/       0 :                     ; ---------------------------------------------------------------------------
+       7/       0 :                     
+       8/       0 : =$24                DAC_BANK_1: 				equ ($120000>>15)
+       9/       0 : =$25                DAC_BANK_2: 				equ ($128000>>15)
+      10/       0 :                     ; ---------------------------------------------------------------------------
+      11/       0 :                     		!org	0
+      12/       0 :                     		CPU Z80
+      13/       0 :                     		listing on
+      14/       0 : C3 3B 00            		jp	InitDriver
+      15/       3 : 00                  		nop
+      16/       4 : 00                  		nop
+      17/       5 : 00                  		nop
+      18/       6 : 00                  		nop
+      19/       7 : 00                  		nop
+      20/       8 : 00                  		nop
+      21/       9 : 00                  		nop
+      22/       A : 00                  		nop
+      23/       B : 00                  		nop
+      24/       C : 00                  		nop
+      25/       D : 00                  		nop
+      26/       E : 00                  		nop
+      27/       F : 00                  		nop
+      28/      10 : 00                  		nop
+      29/      11 : 00                  		nop
+      30/      12 : 00                  		nop
+      31/      13 : 00                  		nop
+      32/      14 : 00                  		nop
+      33/      15 : 00                  		nop
+      34/      16 : 00                  		nop
+      35/      17 : 00                  		nop
+      36/      18 : 00                  		nop
+      37/      19 : 00                  		nop
+      38/      1A : 00                  		nop
+      39/      1B : 00                  		nop
+      40/      1C : 00                  		nop
+      41/      1D : 00                  		nop
+      42/      1E : 00                  		nop
+      43/      1F : 00                  		nop
+      44/      20 : 00                  		nop
+      45/      21 : 00                  		nop
+      46/      22 : 00                  		nop
+      47/      23 : 00                  		nop
+      48/      24 : 00                  		nop
+      49/      25 : 00                  		nop
+      50/      26 : 00                  		nop
+      51/      27 : 00                  		nop
+      52/      28 : 00                  		nop
+      53/      29 : 00                  		nop
+      54/      2A : 00                  		nop
+      55/      2B : 00                  		nop
+      56/      2C : 00                  		nop
+      57/      2D : 00                  		nop
+      58/      2E : 00                  		nop
+      59/      2F : 00                  		nop
+      60/      30 : 00                  		nop
+ AS V1.42 Beta [Bld 111] - source file Z80 Driver.asm - page 2 - 8/17/2019 18:38:56
+
+
+      61/      31 : 00                  		nop
+      62/      32 : 00                  		nop
+      63/      33 : 00                  		nop
+      64/      34 : 00                  		nop
+      65/      35 : 00                  		nop
+      66/      36 : 00                  		nop
+      67/      37 : 00                  		nop
+      68/      38 : C3 BD 01            		jp	InterruptHandler
+      69/      3B :                     ; ---------------------------------------------------------------------------
+      70/      3B :                     
+      71/      3B :                     InitDriver:
+      72/      3B : 31 CD 01            		ld	sp, 1CDh	; init stack pointer
+      73/      3E : F3                  		di			; disable interrupts
+      74/      3F :                     
+      75/      3F :                     		; Init driver's RAM
+      76/      3F : AF                  		xor	a		; a = 0
+      77/      40 : 32 00 02            		ld	(200h),	a	; Clear YM commands list #1
+      78/      43 : 32 00 03            		ld	(300h),	a	; Clear YM commands list #2
+      79/      46 : 32 00 04            		ld	(400h),	a	; Clear DAC A pitch
+      80/      49 : 32 06 04            		ld	(406h),	a	; Clear DAC B pitch
+      81/      4C : 32 09 04            		ld	(409h),	a
+      82/      4F : 32 0A 04            		ld	(40Ah),	a
+      83/      52 : 32 0C 04            		ld	(40Ch),	a
+      84/      55 : 32 0D 04            		ld	(40Dh),	a	; Clear 68k transfer flag
+      85/      58 : 3E 01               		ld	a, 1
+      86/      5A : 32 01 04            		ld	(401h),	a	; Disable DAC A
+      87/      5D : 32 07 04            		ld	(407h),	a	; Disable DAC B
+      88/      60 : 3E 80               		ld	a, 80h
+      89/      62 : 32 02 04            		ld	(402h),	a
+      90/      65 : 32 05 04            		ld	(405h),	a
+      91/      68 : 32 08 04            		ld	(408h),	a
+      92/      6B : 32 0B 04            		ld	(40Bh),	a
+      93/      6E :                     
+      94/      6E :                     		; Setup YM registers for DAC playback
+      95/      6E : 3E 2B               		ld	a, 2Bh
+      96/      70 : 32 00 40            		ld	(4000h), a		; YM Register 2Bh
+      97/      73 : 3E 80               		ld	a, 80h
+      98/      75 : 32 01 40            		ld	(4001h), a		; = Enable DAC
+      99/      78 : 3E B6               		ld	a, 0B6h
+     100/      7A : 32 02 40            		ld	(4002h), a		; YM Register B6h
+     101/      7D : 3E C0               		ld	a, 0C0h
+     102/      7F : 32 03 40            		ld	(4003h), a		; = Setup DAC panning
+     103/      82 :                     
+     104/      82 :                     		; Init DAC data
+     105/      82 : DD 21 00 80         		ld	ix, 8000h
+     106/      86 : DD 22 C1 01         		ld	(DAC_A_Pos), ix		; Set DAC A pos	to 8000h
+     107/      8A : 11 B8 0B            		ld	de, 0BB8h
+     108/      8D : ED 53 C3 01         		ld	(DAC_A_Length),	de	; Set DAC A length
+     109/      91 : 06 6E               		ld	b, 6Eh
+     110/      93 : FD 21 00 80         		ld	iy, 8000h
+     111/      97 : FD 22 C6 01         		ld	(DAC_B_Pos), iy		; Set DAC B post to 8000h
+     112/      9B : 21 90 09            		ld	hl, 990h
+     113/      9E : 22 C8 01            		ld	(DAC_B_Length),	hl	; Set DAC B length
+     114/      A1 : 0E 00               		ld	c, 0
+     115/      A3 : D9                  		exx
+     116/      A4 : 01 01 40            		ld	bc, 4001h
+     117/      A7 : 16 80               		ld	d, 80h
+     118/      A9 : 1E 7F               		ld	e, 7Fh
+     119/      AB : 2E 80               		ld	l, 80h
+     120/      AD : D9                  		exx
+ AS V1.42 Beta [Bld 111] - source file Z80 Driver.asm - page 3 - 8/17/2019 18:38:56
+
+
+     121/      AE : 3E 2A               		ld	a, 2Ah
+     122/      B0 : 32 00 40            		ld	(4000h), a		; Set YM2612 to	fetch PCM byte
+     123/      B3 :                     
+     124/      B3 :                     MainLoop:
+     125/      B3 : 3A 0D 04            		ld	a, (40Dh)		; Load 68k transfer flag
+     126/      B6 : B7                  		or	a			; Is the flag set?
+     127/      B7 : C2 26 01            		jp	nz, LoadDataFrom68k	; If yes, branch
+     128/      BA :                     ; ---------------------------------------------------------------------------
+     129/      BA :                     ; Routine to playback DAC samples
+     130/      BA :                     ; ---------------------------------------------------------------------------
+     131/      BA :                     
+     132/      BA :                     UpdatePCM:
+     133/      BA : D9                  		exx
+     134/      BB : DD 7E 00            		ld	a, (ix+0)		; Load DAC A byte
+     135/      BE : FD 86 00            		add	a, (iy+0)		; Add DAC B byte to it
+     136/      C1 : E2 CF 00            		jp	po, PCM_NoChange
+     137/      C4 : FA CB 00            		jp	m, PCM_Max
+     138/      C7 : 7A                  		ld	a, d			; a = 80h
+     139/      C8 : C3 D5 00            		jp	WritePCM
+     140/      CB :                     
+     141/      CB :                     PCM_Max:
+     142/      CB : 7B                  		ld	a, e			; a = 7Fh
+     143/      CC : C3 D5 00            		jp	WritePCM
+     144/      CF :                     
+     145/      CF :                     PCM_NoChange:
+     146/      CF : 00                  		nop
+     147/      D0 : 00                  		nop
+     148/      D1 : 00                  		nop
+     149/      D2 : 00                  		nop
+     150/      D3 : 00                  		nop
+     151/      D4 : 00                  		nop
+     152/      D5 :                     
+     153/      D5 :                     WritePCM:
+     154/      D5 : 85                  		add	a, l			; a += 80h
+     155/      D6 : 02                  		ld	(bc), a			; send PCM byte	to YM
+     156/      D7 : D9                  		exx
+     157/      D8 :                     ; ---------------------------------------------------------------------------
+     158/      D8 :                     
+     159/      D8 :                     ;Update_DAC_A:
+     160/      D8 : 3A C0 01            		ld	a, (DAC_A_PitchByte)
+     161/      DB : 80                  		add	a, b
+     162/      DC : 32 C0 01            		ld	(DAC_A_PitchByte), a
+     163/      DF : D2 F5 00            		jp	nc, Update_DAC_B_Sync
+     164/      E2 : DD 23               		inc	ix			; Next DAC A byte
+     165/      E4 : 1B                  		dec	de			; Decrease length
+     166/      E5 : 7A                  		ld	a, d
+     167/      E6 : B3                  		or	e
+     168/      E7 : C2 FF 00            		jp	nz, Update_DAC_B	; If length is not zero, branch
+     169/      EA : ED 5B C3 01         		ld	de, (DAC_A_Length)	; Load new length
+     170/      EE : DD 2A C1 01         		ld	ix, (DAC_A_Pos)		; Load new pos
+     171/      F2 : C3 FF 00            		jp	Update_DAC_B
+     172/      F5 :                     ; ---------------------------------------------------------------------------
+     173/      F5 :                     
+     174/      F5 :                     Update_DAC_B_Sync:
+     175/      F5 : 00                  		nop
+     176/      F6 : 00                  		nop
+     177/      F7 : 00                  		nop
+     178/      F8 : 00                  		nop
+     179/      F9 : 00                  		nop
+     180/      FA : 00                  		nop
+ AS V1.42 Beta [Bld 111] - source file Z80 Driver.asm - page 4 - 8/17/2019 18:38:56
+
+
+     181/      FB : 00                  		nop
+     182/      FC : 00                  		nop
+     183/      FD : 00                  		nop
+     184/      FE : 00                  		nop
+     185/      FF :                     
+     186/      FF :                     Update_DAC_B:
+     187/      FF : 3A C5 01            		ld	a, (DAC_B_PitchByte)
+     188/     102 : 81                  		add	a, c
+     189/     103 : 32 C5 01            		ld	(DAC_B_PitchByte), a
+     190/     106 : D2 1B 01            		jp	nc, ToMainLoop_Sync
+     191/     109 : FD 23               		inc	iy			; Next DAC B byte
+     192/     10B : 2B                  		dec	hl			; Decrease length
+     193/     10C : 7C                  		ld	a, h
+     194/     10D : B5                  		or	l
+     195/     10E : C2 B3 00            		jp	nz, MainLoop		; If length is not zero, branch
+     196/     111 : 2A C8 01            		ld	hl, (DAC_B_Length)	; Load new length
+     197/     114 : FD 2A C6 01         		ld	iy, (DAC_B_Pos)		; Load new pos
+     198/     118 : C3 B3 00            		jp	MainLoop
+     199/     11B :                     ; ---------------------------------------------------------------------------
+     200/     11B :                     
+     201/     11B :                     ToMainLoop_Sync:
+     202/     11B : 00                  		nop
+     203/     11C : 00                  		nop
+     204/     11D : 00                  		nop
+     205/     11E : 00                  		nop
+     206/     11F : 00                  		nop
+     207/     120 : 00                  		nop
+     208/     121 : 00                  		nop
+     209/     122 : 00                  		nop
+     210/     123 : C3 B3 00            		jp	MainLoop
+     211/     126 :                     ; ---------------------------------------------------------------------------
+     212/     126 :                     ; Routine to load data stored by 68k side of Audios
+     213/     126 :                     ; Basically, it's YM commands and DAC settings
+     214/     126 :                     ; ---------------------------------------------------------------------------
+     215/     126 :                     
+     216/     126 :                     LoadDataFrom68k:
+     217/     126 : F5                  		push	af
+     218/     127 : C5                  		push	bc
+     219/     128 :                     
+     220/     128 :                     ;SetYM:
+     221/     128 : 01 00 02            		ld	bc, 200h	; Load from address 200h
+     222/     12B :                     
+     223/     12B :                     SetYM_Loop:
+     224/     12B : 0A                  		ld	a, (bc)
+     225/     12C : B7                  		or	a
+     226/     12D : CA 3C 01            		jp	z, SetYM_2	; If data byte is zero,	quit
+     227/     130 : 32 00 40            		ld	(4000h), a	; Set register number
+     228/     133 : 03                  		inc	bc
+     229/     134 : 0A                  		ld	a, (bc)
+     230/     135 : 32 01 40            		ld	(4001h), a	; Set register value
+     231/     138 : 03                  		inc	bc
+     232/     139 : C3 2B 01            		jp	SetYM_Loop
+     233/     13C :                     ; ---------------------------------------------------------------------------
+     234/     13C :                     
+     235/     13C :                     SetYM_2:
+     236/     13C : AF                  		xor	a
+     237/     13D : 32 00 02            		ld	(200h),	a
+     238/     140 : 32 0D 04            		ld	(40Dh),	a
+     239/     143 : 01 00 03            		ld	bc, 300h	; Load from address 300h
+     240/     146 :                     
+ AS V1.42 Beta [Bld 111] - source file Z80 Driver.asm - page 5 - 8/17/2019 18:38:56
+
+
+     241/     146 :                     SetYM_Loop_2:
+     242/     146 : 0A                  		ld	a, (bc)
+     243/     147 : B7                  		or	a
+     244/     148 : CA 57 01            		jp	z, Load_DAC_Data ; if data byte	is zero, quit
+     245/     14B : 32 02 40            		ld	(4002h), a	; Set register number
+     246/     14E : 03                  		inc	bc
+     247/     14F : 0A                  		ld	a, (bc)
+     248/     150 : 32 03 40            		ld	(4003h), a	; Set register value
+     249/     153 : 03                  		inc	bc
+     250/     154 : C3 46 01            		jp	SetYM_Loop_2
+     251/     157 :                     ; ---------------------------------------------------------------------------
+     252/     157 :                     
+     253/     157 :                     Load_DAC_Data:
+     254/     157 : AF                  		xor	a
+     255/     158 : 32 00 03            		ld	(300h),	a
+     256/     15B : ED 4B 02 04         		ld	bc, (402h)
+     257/     15F : ED 43 C1 01         		ld	(DAC_A_Pos), bc	; Load DAC A position in ROM bank
+     258/     163 : ED 4B 04 04         		ld	bc, (404h)
+     259/     167 : ED 43 C3 01         		ld	(DAC_A_Length),	bc ; Load DAC A	length
+     260/     16B : ED 4B 08 04         		ld	bc, (408h)
+     261/     16F : ED 43 C6 01         		ld	(DAC_B_Pos), bc	; Load DAC B position in bytes
+     262/     173 : ED 4B 0A 04         		ld	bc, (40Ah)
+     263/     177 : ED 43 C8 01         		ld	(DAC_B_Length),	bc ; Load DAC B	length
+     264/     17B : 3A 01 04            		ld	a, (401h)	; Load DAC A disable flag
+     265/     17E : B7                  		or	a		; Is the flag set?
+     266/     17F : 28 03               		jr	z, Chk_DAC_B	; If not, branch
+     267/     181 : 11 01 00            		ld	de, 1		; Reset	DAC length
+     268/     184 :                     
+     269/     184 :                     Chk_DAC_B:
+     270/     184 : 3A 07 04            		ld	a, (407h)	; Load DAC B disable flag
+     271/     187 : B7                  		or	a		; Is the flag set?
+     272/     188 : 28 03               		jr	z, +		; If not, branch
+     273/     18A : 21 01 00            		ld	hl, 1		; Reset	DAC length
+     274/     18D :                     
+     275/     18D : 06 24               +		ld	b,DAC_BANK_1	; bank #1 value
+     276/     18F : 3A 0C 04            		ld	a,(40Ch)			; load bank id
+     277/     192 : B7                  		or	a
+     278/     193 : 28 02               		jr	z,LoadBank
+     279/     195 : 06 25               		ld	b,DAC_BANK_2	; bank #2 value
+     280/     197 :                     
+     281/     197 :                     LoadBank:
+     282/     197 : 78                  		ld	a,b
+     283/     198 : 01 00 60            		ld	bc,6000h
+     284/     19B : 02                  		ld	(bc), a	; A15
+     285/     19C : 0F                  		rrca
+     286/     19D : 02                  		ld	(bc), a	; A16
+     287/     19E : 0F                  		rrca
+     288/     19F : 02                  		ld	(bc), a	; A17
+     289/     1A0 : 0F                  		rrca
+     290/     1A1 : 02                  		ld	(bc), a	; A18
+     291/     1A2 : 0F                  		rrca
+     292/     1A3 : 02                  		ld	(bc), a	; A19
+     293/     1A4 : 0F                  		rrca
+     294/     1A5 : 02                  		ld	(bc), a	; A20
+     295/     1A6 : 0F                  		rrca
+     296/     1A7 : 02                  		ld	(bc), a	; A21
+     297/     1A8 : AF                  		xor	a	; a = 0
+     298/     1A9 : 02                  		ld	(bc), a	; A22
+     299/     1AA : 02                  		ld	(bc), a	; A23
+     300/     1AB :                     
+ AS V1.42 Beta [Bld 111] - source file Z80 Driver.asm - page 6 - 8/17/2019 18:38:56
+
+
+     301/     1AB :                     LoadDAC_End:
+     302/     1AB : 3E 2A               		ld	a, 2Ah
+     303/     1AD : 32 00 40            		ld	(4000h), a	; Set YM2612 to	fetch PCM byte
+     304/     1B0 : C1                  		pop	bc
+     305/     1B1 : 3A 00 04            		ld	a, (400h)
+     306/     1B4 : 47                  		ld	b, a		; Set DAC A pitch
+     307/     1B5 : 3A 06 04            		ld	a, (406h)
+     308/     1B8 : 4F                  		ld	c, a		; Set DAC B pitch
+     309/     1B9 : F1                  		pop	af
+     310/     1BA : C3 BA 00            		jp	UpdatePCM
+     311/     1BD :                     ; ---------------------------------------------------------------------------
+     312/     1BD :                     
+     313/     1BD :                     InterruptHandler:
+     314/     1BD : FB                  		ei			; enable interrupts
+     315/     1BE : ED 4D               		reti
+     316/     1C0 :                     ; ---------------------------------------------------------------------------
+     317/     1C0 :                     
+     318/     1C0 : 01                  DAC_A_PitchByte:db 1
+     319/     1C1 : 01 00               DAC_A_Pos:	dw 1
+     320/     1C3 : 01 00               DAC_A_Length:	dw 1
+     321/     1C5 : 01                  DAC_B_PitchByte:db 1
+     322/     1C6 : 01 00               DAC_B_Pos:	dw 1
+     323/     1C8 : 01 00               DAC_B_Length:	dw 1
+     324/     1CA :                     
+     325/     1CA : 01                  		db    1
+     326/     1CB : 01                  		db    1
+     327/     1CC : 00                  		db    0
+     328/     1CD : 00                  		db    0
+     329/     1CE : 00                  		db    0
+     330/     1CF : 00                  		db    0
+     331/     1D0 : 00                  		db    0
+     332/     1D1 : 00                  		db    0
+     333/     1D2 : 00                  		db    0
+     334/     1D3 : 00                  		db    0
+     335/     1D4 : 00                  		db    0
+     336/     1D5 : 00                  		db    0
+     337/     1D6 : 00                  		db    0
+     338/     1D7 : 00                  		db    0
+     339/     1D8 : 00                  		db    0
+     340/     1D9 : 00                  		db    0
+     341/     1DA : 00                  		db    0
+     342/     1DB : 00                  		db    0
+     343/     1DC : 00                  		db    0
+     344/     1DD :                     
+     345/     1DD :                     		END
+ AS V1.42 Beta [Bld 111] - source file Z80 Driver.asm - page 7 - 8/17/2019 18:38:56
+
+
+  symbol table (* = unused):
+  ------------------------
+
+*ARCHITECTURE :  i386-unknown-win32 - | *BIGENDIAN :                      0 - |
+*BRANCHEXT :                      0 - | *CASESENSITIVE :                  0 - |
+ CHK_DAC_B :                    184 C | *CONSTPI :        3.141592653589793 - |
+ DAC_A_LENGTH :                 1C3 C |  DAC_A_PITCHBYTE :              1C0 C |
+ DAC_A_POS :                    1C1 C |  DAC_BANK_1 :                    24 - |
+ DAC_BANK_2 :                    25 - |  DAC_B_LENGTH :                 1C8 C |
+ DAC_B_PITCHBYTE :              1C5 C |  DAC_B_POS :                    1C6 C |
+*DATE :                   8/17/2019 - | *FALSE :                          0 - |
+*FULLPMMU :                       1 - | *HAS64 :                          1 - |
+*HASDSP :                         0 - | *HASFPU :                         0 - |
+*HASPMMU :                        0 - | *INEXTMODE :                      0 - |
+ INITDRIVER :                    3B C | *INLWORDMODE :                    0 - |
+*INMAXMODE :                      0 - | *INSRCMODE :                      0 - |
+*INSUPMODE :                      0 - |  INTERRUPTHANDLER :             1BD C |
+*LISTON :                         1 - |  LOADBANK :                     197 C |
+*LOADDAC_END :                  1AB C |  LOADDATAFROM68K :              126 C |
+ LOAD_DAC_DATA :                157 C | *MACEXP :                         1 - |
+ MAINLOOP :                      B3 C | *MOMCPU :                        80 - |
+*MOMCPUNAME :                   Z80 - | *NESTMAX :                      100 - |
+*PACKING :                        0 - | *PADDING :                        1 - |
+ PCM_MAX :                       CB C |  PCM_NOCHANGE :                  CF C |
+*RELAXED :                        0 - |  SETYM_2 :                      13C C |
+ SETYM_LOOP :                   12B C |  SETYM_LOOP_2 :                 146 C |
+*TIME :                    18:38:56 - |  TOMAINLOOP_SYNC :              11B C |
+*TRUE :                           1 - |  UPDATEPCM :                     BA C |
+ UPDATE_DAC_B :                  FF C |  UPDATE_DAC_B_SYNC :             F5 C |
+*VERSION :                     142F - |  WRITEPCM :                      D5 C |
+ __FORW0 :                      18D C |
+
+     55 symbols
+     29 unused symbols
+
+ AS V1.42 Beta [Bld 111] - source file Z80 Driver.asm - page 8 - 8/17/2019 18:38:56
+
+
+  codepages:
+  ----------
+
+STANDARD (0 changed characters)
+
+
+0.01 seconds assembly time
+
+    346 lines source file
+      2 passes
+      0 errors
+      0 warnings

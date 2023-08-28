@@ -1,0 +1,13 @@
+/* Music */
+#split	0x00000AB8,0x00000FDA,Music/0.bin
+#split	0x00000FDA,0x000015DC,Music/1.bin
+#split	0x000015DC,0x00001E4E,Music/2.bin
+#split	0x00001E4E,0x00002704,Music/3.bin
+#split	0x00002704,0x0000321C,Music/4.bin
+#split	0x0000321C,0x00003330,Music/5.bin
+#split	0x00003330,0x0000341E,Music/6.bin
+#split	0x0000341E,0x00003573,Music/7.bin
+#split	0x00003573,0x00003F11,Music/8.bin
+#split	0x00003F11,0x000043D6,Music/9.bin
+#split	0x000043D6,0x00004885,Music/A.bin
+#split	0x00004885,0x00004C00,Music/B.bin

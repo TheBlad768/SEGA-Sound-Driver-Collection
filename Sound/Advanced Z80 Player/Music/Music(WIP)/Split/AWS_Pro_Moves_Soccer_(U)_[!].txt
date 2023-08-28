@@ -1,0 +1,22 @@
+/* MUSIC (Bank 14) */
+#split	0x00018015,0x00018465,Music/AWS Pro Moves Soccer/Bank 1/Music/1.bin
+/* SEQUENCE (Bank 14) */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MUSIC (Bank 15) */
+#split	0x00018F3D,0x00019345,Music/AWS Pro Moves Soccer/Bank 2/Music/1.bin
+/* SEQUENCE (Bank 15) */

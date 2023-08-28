@@ -1,0 +1,11 @@
+ SECTION HEADER
+ dc.b 1
+ dc.t channel_0
+
+ SECTION CODE
+channel_0:
+ delay 0
+ tempo 87
+ play $30
+ play $31
+ eos

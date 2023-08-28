@@ -1,0 +1,27 @@
+/* Music */
+#split	0x00073AAE,0x00073E9E,Music/2.bin
+#split	0x00073E9E,0x000744BE,Music/4.bin
+#split	0x000744BE,0x0007481A,Music/5.bin
+#split	0x0007481A,0x00074BE4,Music/6.bin
+#split	0x00074BE4,0x00075064,Music/7.bin
+#split	0x00075064,0x00075364,Music/8.bin
+#split	0x00075364,0x000758FA,Music/9.bin
+#split	0x000758FA,0x00075D6A,Music/A.bin
+#split	0x00075D6A,0x00075FE0,Music/B.bin
+#split	0x00075FE0,0x000761D8,Music/C.bin
+#split	0x000761D8,0x00076710,Music/D.bin
+#split	0x00076710,0x00076C64,Music/E.bin
+#split	0x00076C64,0x000771C4,Music/F.bin
+#split	0x000771C4,0x00077930,Music/10.bin
+#split	0x00077930,0x00077E04,Music/0.bin
+#split	0x00077E04,0x00078142,Music/1.bin
+#split	0x00078142,0x00078578,Music/15.bin
+#split	0x00078578,0x00078980,Music/16.bin
+#split	0x00078980,0x00078EEE,Music/12.bin
+#split	0x00078EEE,0x00079152,Music/17.bin
+#split	0x00079152,0x0007995C,Music/13.bin
+#split	0x0007995C,0x00079B06,Music/18.bin
+#split	0x00079B06,0x0007A546,Music/11.bin
+#split	0x0007A546,0x0007A80A,Music/19.bin
+#split	0x0007A80A,0x0007A970,Music/14.bin
+#split	0x0007A970,0x0007A9DE,Music/3.bin

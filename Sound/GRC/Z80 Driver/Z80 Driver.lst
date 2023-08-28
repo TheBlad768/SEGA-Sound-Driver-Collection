@@ -1,0 +1,194 @@
+ AS V1.42 Beta [Bld 119] - source file Z80 Driver.asm - page 1 - 4/29/2019 20:04:02
+
+
+       1/       0 :                     ; ---------------------------------------------------------------------------
+       2/       0 :                     ; GRC Z80 DAC Driver
+       3/       0 :                     ; ---------------------------------------------------------------------------
+       4/       0 :                     
+       5/       0 :                     ; =============== S U B R O U T I N E =======================================
+       6/       0 :                     
+       7/       0 :                     DAC_Driver:
+       8/       0 :                     		!org	0
+       9/       0 :                     		CPU Z80
+      10/       0 :                     		listing on
+      11/       0 : F3                  		di
+      12/       1 : F3                  		di
+      13/       2 : 31 E0 1F            		ld	sp, 1FE0h
+      14/       5 : AF                  		xor	a
+      15/       6 : 32 FF 1F            		ld	(1FFFh), a
+      16/       9 : 32 F0 1F            		ld	(1FF0h), a
+      17/       C : 32 F1 1F            		ld	(1FF1h), a
+      18/       F : 21 00 00            		ld	hl, 0
+      19/      12 : 22 E6 1F            		ld	(1FE5h+1), hl
+      20/      15 : 22 E2 1F            		ld	(1FE2h), hl
+      21/      18 : 22 E0 1F            		ld	(1FE0h), hl
+      22/      1B : 22 EE 1F            		ld	(1FEEh), hl
+      23/      1E : 22 EA 1F            		ld	(1FEAh), hl
+      24/      21 : 22 E8 1F            		ld	(1FE8h), hl
+      25/      24 : 18 42               		jr	DAC_Driver_Init
+      26/      26 :                     ; End of function DAC_Driver
+      27/      26 :                     ; ---------------------------------------------------------------------------
+      28/      26 :                     		align 38h
+      29/      38 :                     
+      30/      38 :                     ; =============== S U B R O U T I N E =======================================
+      31/      38 :                     
+      32/      38 :                     zVInt:
+      33/      38 : ED 4D               		reti
+      34/      3A :                     
+      35/      3A :                     ; =============== S U B R O U T I N E =======================================
+      36/      3A :                     
+      37/      3A :                     LoadBank:
+      38/      3A : 7D                  		ld	a, l
+      39/      3B : 07                  		rlca
+      40/      3C : 32 00 60            		ld	(6000h), a
+      41/      3F : 06 08               		ld	b, 8
+      42/      41 : 7C                  		ld	a, h
+      43/      42 :                     
+      44/      42 : 32 00 60            -		ld	(6000h), a
+      45/      45 : CB 3F               		srl	a
+      46/      47 : 10 F9               		djnz	-
+      47/      49 : C9                  		ret
+      48/      4A :                     ; End of function LoadBank
+      49/      4A :                     ; ---------------------------------------------------------------------------
+      50/      4A :                     		align 66h
+      51/      66 :                     
+      52/      66 :                     ; =============== S U B R O U T I N E =======================================
+      53/      66 :                     
+      54/      66 :                     zsub_66:
+      55/      66 : ED 45               		retn
+      56/      68 :                     
+      57/      68 :                     ; =============== S U B R O U T I N E =======================================
+      58/      68 :                     
+      59/      68 :                     DAC_Driver_Init:
+      60/      68 : 3A F0 1F            		ld	a, (1FF0h)
+ AS V1.42 Beta [Bld 119] - source file Z80 Driver.asm - page 2 - 4/29/2019 20:04:02
+
+
+      61/      6B : B7                  		or	a
+      62/      6C : C4 AA 00            		call	nz, sub_AA
+      63/      6F : 1E 80               		ld	e, 80h
+      64/      71 : 2A E6 1F            		ld	hl, (1FE5h+1)
+      65/      74 : ED 4B E2 1F         		ld	bc, (1FE2h)
+      66/      78 : AF                  		xor	a
+      67/      79 : ED 42               		sbc	hl, bc
+      68/      7B : 30 18               		jr	nc, loc_95
+      69/      7D : 2A E6 1F            		ld	hl, (1FE5h+1)
+      70/      80 : 7E                  		ld	a, (hl)
+      71/      81 : 5F                  		ld	e, a
+      72/      82 : ED 4B E0 1F         		ld	bc, (1FE0h)
+      73/      86 : 2A E5 1F            		ld	hl, (1FE5h)
+      74/      89 : 09                  		add	hl, bc
+      75/      8A : 22 E5 1F            		ld	(1FE5h), hl
+      76/      8D : 3A E7 1F            		ld	a, (1FE7h)
+      77/      90 : CE 00               		adc	a, 0
+      78/      92 : 32 E7 1F            		ld	(1FE7h), a
+      79/      95 :                     
+      80/      95 :                     loc_95:
+      81/      95 : 3E 80               		ld	a, 80h
+      82/      97 : 32 FF 1F            		ld	(1FFFh), a
+      83/      9A : 3E 2A               		ld	a, 2Ah
+      84/      9C : 32 00 40            		ld	(4000h), a
+      85/      9F : 7B                  		ld	a, e
+      86/      A0 : 32 01 40            		ld	(4001h), a
+      87/      A3 : AF                  		xor	a
+      88/      A4 : 32 FF 1F            		ld	(1FFFh), a
+      89/      A7 : C3 68 00            		jp	DAC_Driver_Init
+      90/      AA :                     
+      91/      AA :                     ; =============== S U B R O U T I N E =======================================
+      92/      AA :                     
+      93/      AA :                     sub_AA:
+      94/      AA : 3A F0 1F            		ld	a, (1FF0h)
+      95/      AD : CD C7 00            		call	sub_C7
+      96/      B0 : 22 E6 1F            		ld	(1FE5h+1), hl
+      97/      B3 : AF                  		xor	a
+      98/      B4 : 32 E4 1F            		ld	(1FE4h), a
+      99/      B7 : 32 E5 1F            		ld	(1FE5h), a
+     100/      BA : 19                  		add	hl, de
+     101/      BB : 22 E2 1F            		ld	(1FE2h), hl
+     102/      BE : ED 43 E0 1F         		ld	(1FE0h), bc
+     103/      C2 : AF                  		xor	a
+     104/      C3 : 32 F0 1F            		ld	(1FF0h), a
+     105/      C6 : C9                  		ret
+     106/      C7 :                     ; End of function sub_AA
+     107/      C7 :                     
+     108/      C7 :                     ; =============== S U B R O U T I N E =======================================
+     109/      C7 :                     
+     110/      C7 :                     sub_C7:
+     111/      C7 : 26 00               		ld	h, 0
+     112/      C9 : 6F                  		ld	l, a
+     113/      CA : 29                  		add	hl, hl
+     114/      CB : 29                  		add	hl, hl
+     115/      CC : 29                  		add	hl, hl
+     116/      CD : EB                  		ex	de, hl
+     117/      CE : DD 21 80 01         		ld	ix, DACTbl
+     118/      D2 : DD 19               		add	ix, de
+     119/      D4 : DD 6E 06            		ld	l, (ix+6)
+     120/      D7 : DD 66 07            		ld	h, (ix+7)
+ AS V1.42 Beta [Bld 119] - source file Z80 Driver.asm - page 3 - 4/29/2019 20:04:02
+
+
+     121/      DA : CD 3A 00            		call	LoadBank
+     122/      DD : DD 6E 00            		ld	l, (ix+0)
+     123/      E0 : DD 66 01            		ld	h, (ix+1)
+     124/      E3 : DD 5E 02            		ld	e, (ix+2)
+     125/      E6 : DD 56 03            		ld	d, (ix+3)
+     126/      E9 : DD 4E 04            		ld	c, (ix+4)
+     127/      EC : DD 46 05            		ld	b, (ix+5)
+     128/      EF : C9                  		ret
+     129/      F0 :                     ; End of function sub_C7
+     130/      F0 :                     ; ---------------------------------------------------------------------------
+     131/      F0 :                     		align 180h
+     132/     180 :                     
+     133/     180 :                     DACTbl:		; DAC Tbl ~8 bytes.
+     134/     180 :                     		binclude "Z80 Driver/DAC/DAC Table.bin"
+     135/     310 :                     		binclude "Z80 Driver/DAC/DAC.bin"
+     136/    1C01 :                     
+     137/    1C01 :                     ; =============== S U B R O U T I N E =======================================
+     138/    1C01 :                     
+     139/    1C01 :                     ; end of 'ROM'
+     140/    1C01 :                     
+     141/    1C01 :                     		END
+ AS V1.42 Beta [Bld 119] - source file Z80 Driver.asm - page 4 - 4/29/2019 20:04:02
+
+
+  symbol table (* = unused):
+  ------------------------
+
+*ARCHITECTURE :  i386-unknown-win32 - | *BIGENDIAN :                      0 - |
+*BRANCHEXT :                      0 - | *CASESENSITIVE :                  0 - |
+*CONSTPI :        3.141592653589793 - |  DACTBL :                       180 C |
+*DAC_DRIVER :                     0 C |  DAC_DRIVER_INIT :               68 C |
+*DATE :                   4/29/2019 - | *FALSE :                          0 - |
+*FULLPMMU :                       1 - | *HAS64 :                          1 - |
+*HASDSP :                         0 - | *HASFPU :                         0 - |
+*HASPMMU :                        0 - | *INEXTMODE :                      0 - |
+*INLWORDMODE :                    0 - | *INMAXMODE :                      0 - |
+*INSRCMODE :                      0 - | *INSUPMODE :                      0 - |
+*LISTON :                         1 - |  LOADBANK :                      3A C |
+ LOC_95 :                        95 C | *MACEXP :                         7 - |
+*MOMCPU :                        80 - | *MOMCPUNAME :                   Z80 - |
+*NESTMAX :                      100 - | *PACKING :                        0 - |
+*PADDING :                        1 - | *RELAXED :                        0 - |
+ SUB_AA :                        AA C |  SUB_C7 :                        C7 C |
+*TIME :                    20:04:02 - | *TRUE :                           1 - |
+*VERSION :                     142F - | *ZSUB_66 :                       66 C |
+*ZVINT :                         38 C |  __BACK0 :                       42 C |
+
+     38 symbols
+     31 unused symbols
+
+ AS V1.42 Beta [Bld 119] - source file Z80 Driver.asm - page 5 - 4/29/2019 20:04:02
+
+
+  codepages:
+  ----------
+
+STANDARD (0 changed characters)
+
+
+0.00 seconds assembly time
+
+    142 lines source file
+      2 passes
+      0 errors
+      0 warnings

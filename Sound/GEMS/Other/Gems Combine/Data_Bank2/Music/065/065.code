@@ -1,0 +1,28 @@
+ SECTION HEADER
+ dc.b 1
+ dc.t channel_0
+
+ SECTION CODE
+channel_0:
+ delay 0
+ tempo 135
+ priority 40
+ patch patch_0C
+ duration 12
+ delay 12
+ note $3C
+ note $3A
+ note $39
+ note $37
+ note $35
+ note $34
+ note $32
+ note $30
+ note $32
+ note $34
+ note $35
+ note $37
+ duration 24
+ delay 24
+ note $35
+ eos

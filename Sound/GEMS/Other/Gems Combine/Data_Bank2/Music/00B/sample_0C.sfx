@@ -1,0 +1,6 @@
+RAW 'sample_0C.snd'
+FLAGS =$C6
+SKIP  =$0000
+FIRST =$1318
+LOOP  =$0000
+END   =$0000
