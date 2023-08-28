@@ -2,3 +2,4 @@
 *.txt text
 *.bin binary
 *.snd binary
+*.raw binary
