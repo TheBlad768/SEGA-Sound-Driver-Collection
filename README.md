@@ -1,5 +1,7 @@
 # SEGA SOUND DRIVER COLLECTION (2019)
 
+![Main](https://i.imgur.com/sQ7GuOn.png)
+
 ## Game list
 
 <details>
